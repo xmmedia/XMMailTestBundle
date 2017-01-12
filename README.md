@@ -1,5 +1,5 @@
 # XMMailerTestBundle
-Allows for easy testing of the mailer/emails when using the [SwiftMailerBundle](/symfony/swiftmailer-bundle)
+Allows for easy testing of the mailer/emails when using the [SwiftMailerBundle](/symfony/swiftmailer-bundle).
 
 ## Installation
 
