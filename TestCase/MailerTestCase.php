@@ -13,6 +13,14 @@ use XM\MailerTestBundle\EmailListener\SwiftEmailListener;
 class MailerTestCase extends KernelTestCase
 {
     /**
+     * {@inheritdoc}
+     */
+    protected function setUp()
+    {
+        self::bootKernel();
+    }
+
+    /**
      * Registers the email listener plugin with the mailer (Swift).
      *
      * @return SwiftEmailListener
