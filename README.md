@@ -1,5 +1,5 @@
-# XMMailTestBundle
-Allows for easy testing of emails when using the [SwiftMailerBundle](/symfony/swiftmailer-bundle)
+# XMMailerTestBundle
+Allows for easy testing of the mailer/emails when using the [SwiftMailerBundle](/symfony/swiftmailer-bundle)
 
 ## Installation
 
@@ -11,7 +11,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```console
-$ php composer.phar require xm/mail-test-bundle
+$ php composer.phar require xm/mailer-test-bundle
 ```
 
 This command requires [Composer](https://getcomposer.org/download/).
@@ -30,12 +30,11 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
-        $bundles = array(
-            // ...
-            new XM\MailTestBundle\XMMailTestBundle(),
-        );
-
         // ...
+        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+            // ...
+            $bundles = [] = new XM\MailerTestBundle\XMMailerTestBundle();
+        }
     }
 }
 ```
