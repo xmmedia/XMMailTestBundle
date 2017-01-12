@@ -38,3 +38,39 @@ class AppKernel extends Kernel
     }
 }
 ```
+
+## Usage
+
+Below is a typicaly usage.
+
+```php
+<?php
+
+namespace Tests\AppBundle\EventSubscriber;
+
+use Symfony\Component\EventDispatcher\GenericEvent;
+use XM\MailerTestBundle\Test\MailerTestCase;
+
+class EventSubscriberTest extends MailerTestCase
+{
+    public function testEvent()
+    {
+        $mailerPlugin = $this->getMailerPlugin();
+
+        $event = new GenericEvent();
+
+        $this->container->get('app.listener')
+            ->onEvent($event);
+
+        $this->assertNotNull($mailerPlugin->beforeSendEvent);
+        $this->assertNotNull($mailerPlugin->sendEvent);
+
+        $msg = $mailerPlugin->sendEvent->getMessage();
+
+        $expected = 'Expected Subject';
+        $this->assertEquals($expected, $msg->getSubject());
+
+        $this->assertContains('Expected part of email body', $msg->getBody());
+    }
+}
+```
