@@ -33,7 +33,7 @@ class AppKernel extends Kernel
         // ...
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             // ...
-            $bundles = [] = new XM\MailerTestBundle\XMMailerTestBundle();
+            $bundles[] = new XM\MailerTestBundle\XMMailerTestBundle();
         }
     }
 }
