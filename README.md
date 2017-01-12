@@ -41,7 +41,7 @@ class AppKernel extends Kernel
 
 ## Usage
 
-Below is a typicaly usage.
+Below is how this bundle would be typically used.
 
 ```php
 <?php
@@ -62,9 +62,11 @@ class EventSubscriberTest extends MailerTestCase
         $this->container->get('app.listener')
             ->onEvent($event);
 
+        // make sure email was sent
         $this->assertNotNull($mailerPlugin->beforeSendEvent);
         $this->assertNotNull($mailerPlugin->sendEvent);
 
+        // grab message and make sure it matches what we wanted
         $msg = $mailerPlugin->sendEvent->getMessage();
 
         $expected = 'Expected Subject';
